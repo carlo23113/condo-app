@@ -1,0 +1,112 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#navbar {
+    background-color: $color;
+    color: white;
+}
+
+#nav-drawer {
+    background-color: rgb(226, 226, 226);
+}
+
+.login {
+    background-image: url("/images/condo.jpg");
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+
+    #login-dialog {
+        background: #eeeeee;
+    }
+}
+a {
+    text-decoration: none;
+}
+
+.main {
+    padding: 2%;
+
+    .grid-container {
+        display: grid;
+        grid-column-gap: 50px;
+        grid-template-columns: auto auto auto auto;
+        padding: 10px;
+
+        #service svg {
+            color: #00acc1;
+        }
+
+        #amenity svg {
+            color: #7cb342;
+        }
+
+        #visitors svg {
+            color: #f4511e;
+        }
+
+        #billing svg {
+            color: #8e24aa;
+        }
+
+        #check-btn {
+            background-color: #d4d4d4;
+            color: black;
+        }
+    }
+}
+
+#analytics {
+    height: 100%;
+}
+
+.display-1 {
+    color: white;
+    text-align: center;
+}
+
+.service {
+    display: flex;
+    justify-content: space-between;
+
+    #search {
+        display: flex;
+
+        #search-input {
+            height: 45px;
+        }
+
+        #search-btn {
+            background-color: rgb(71, 71, 71);
+            width: 55px;
+            height: 55px;
+            svg {
+                width: 25px;
+                color: white;
+            }
+        }
+    }
+}
+
+#btn {
+    background-color: $color;
+    color: white;
+}
