@@ -50,9 +50,6 @@ export default {
             password: ""
         }
     }),
-    created() {
-        this.dialog = true;
-    },
     methods: {
         clear() {
             this.account.username = "";
@@ -64,7 +61,32 @@ export default {
                     window.location.href = "/dashboard";
                 }
             });
+        },
+        checksession() {
+            this.axios
+                .get(host + `/checksession`)
+                .then(response => {
+                    this.check(response.data);
+                })
+                .catch(error => console.log(error))
+                .finally(() => (this.loading = false));
+        },
+        check(data) {
+            if (data.user == "admin") {
+                this.admin();
+            }
+        },
+        admin() {
+            if (
+                window.location.href == host + "/" ||
+                window.location.href == host + "/login"
+            )
+                window.location.href = "/dashboard";
         }
+    },
+    created() {
+        this.checksession();
+        this.dialog = true;
     }
 };
 </script>

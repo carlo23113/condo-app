@@ -116,9 +116,7 @@ export default {
             if (data.user == "admin") {
                 this.admin();
             } else {
-                this.$router.push({
-                    name: "login"
-                });
+                window.location.href = "/login";
             }
         },
         admin() {

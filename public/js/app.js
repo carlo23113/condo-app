@@ -2028,9 +2028,7 @@ __webpack_require__.r(__webpack_exports__);
       if (data.user == "admin") {
         this.admin();
       } else {
-        this.$router.push({
-          name: "login"
-        });
+        window.location.href = "/login";
       }
     },
     admin: function admin() {
@@ -2125,9 +2123,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  created: function created() {
-    this.dialog = true;
-  },
   methods: {
     clear: function clear() {
       this.account.username = "";
@@ -2139,7 +2134,30 @@ __webpack_require__.r(__webpack_exports__);
           window.location.href = "/dashboard";
         }
       });
+    },
+    checksession: function checksession() {
+      var _this = this;
+
+      this.axios.get(_host_js__WEBPACK_IMPORTED_MODULE_0__["host"] + "/checksession").then(function (response) {
+        _this.check(response.data);
+      })["catch"](function (error) {
+        return console.log(error);
+      })["finally"](function () {
+        return _this.loading = false;
+      });
+    },
+    check: function check(data) {
+      if (data.user == "admin") {
+        this.admin();
+      }
+    },
+    admin: function admin() {
+      if (window.location.href == _host_js__WEBPACK_IMPORTED_MODULE_0__["host"] + "/" || window.location.href == _host_js__WEBPACK_IMPORTED_MODULE_0__["host"] + "/login") window.location.href = "/dashboard";
     }
+  },
+  created: function created() {
+    this.checksession();
+    this.dialog = true;
   }
 });
 
